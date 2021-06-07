@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" contetn="width=device-width, initial-scale-1.0">
+        <meta charset="UTF-8">
+        <html lang="pl-PL"></html>
+        <title>Google</title>
+        <link rel="icon" href="smallLogo.png">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">pt>
+        <script src="cities.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src = "vue.js" defer=""></script>
+        <link rel="stylesheet" href="autocompleter.css">
+        <script src="autocompleter.js"></script>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="logowanie">
+                <div class="ramka1">
+                    <div class=gmail>
+                        Gmail
+                    </div> 
+                    <div class="grafika">
+                        Grafika
+                    </div>
+                    <div class="menu">
+                        <svg class="9kropek" focusable="false" viewBox="0 0 24 24"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path></svg>
+                    </div>
+                    <div class="zaloguj">
+                        Zaloguj się
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="Logo">
+                <a href="https://martyna999.github.io/google1/">results</a>
+                <img src="logo.png" class="logo" alt="" data-atf="1">
+            </div>
+
+            <div class="wyszukiwarka">
+                
+                <div id="okno">
+                    <div id="app":class="{results : active()}">  
+                        <div class="autocomplete">
+
+                            <input type="text" id="googleSearch" @input="filterCities" @focus="el_focus = true" @keyup.down="down()" @keyup.up="up()" @keyup.enter="enter()" v-model="googleSearch" v-bind:class="{results: googleSearch}" value height="44px">
+                            
+                            <div v-if='filteredCities' class="City" :higlight="true">
+                                    <ul id="lista">
+                                        <li id="listEl" v-for="(city, index) in filteredCities">
+                                            <div class="element" :class="{kl_focus: index == mark}">
+                                                <img src="lupa.png" id="lupa-icon1">
+                                                <a v-html="bold_letter(city)" v-on:click="chosen(index)">
+                                                    <b>{{ city }}</b>
+                                                </a>  
+                                            </div>
+                                        </li>
+                                    </ul>            
+                                               <!--
+                            <div v-if='filteredCities' class="city" v-for="city in filteredCities" @click="setCity(filteredCity)">
+                               {{ city.name }}
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+
+                <img src="lupa.png" id="lupa"> 
+                    <img src="mikrofon.png" id="mikrofon">
+                    <img src="klawiatura.png" id="klawiatura">
+                <!--
+                <div class="przyciski">
+                    <div class = "przycisk1">Szukaj w Google</div>
+                    <div class = "przycisk2">Szczęśliwy traf</div>
+                </div>
+                 -->
+                <div class="przyciski">
+                    <!-- <div class = "przycisk1">Szukaj w Google</div>-->
+                    <!--<div class = "przycisk2">Szczęśliwy traf</div>-->
+                </div>
+            </div>
+
+            <div class="pustePole"></div>
+
+            <div class="polska">
+                <p>Polska</p>
+            </div>
+        
+            <div class="napisy">
+            <div class="napis1">
+                <span id="slowo1">O nas</span>
+                <span id="slowo2">Reklamuj się</span>
+                <span id="slowo3">Dla firm</span>
+                <span id="slowo4">Jak działa wyszukiwarka</span>
+            </div>
+
+            <div class="napis2">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAYCAMAAAAiV0Z6AAAAPFBMVEVLoEN0wU6CzFKCzFKCzFKCzFKCzFJSo0MSczNDmkCCzFJPoUMTczNdr0gmgziCzFITczMTczMTczMTczPh00jOAAAAFHRSTlPF/+bIsms8Ad///hX+//5/tXw7aMEAx10AAACaSURBVHgBbc4HDoRQCATQ33tbvf9dF9QxaCT9UQaltLHOh/golXKhMs5Xqa0xU1lyoa2fXFyQOsDG38qsLy4TaV+sFislovyhPzLJJrBu6eQOtpW0LjbJkzTuTDLRVNKa3uxJI+VdiRqXSeu6GW+Qxi29eLIi8H7EsYrT42BD+mQtNO5JMjRuC4lSY8V4hsLX0egGijvUSEP9AbylEsOkeCgWAAAAAElFTkSuQmCC" class="lisc" alt="" data-atf="1">
+                <span id="slowo5">Neutralność węglowa od 2007 roku</span>
+            </div>
+
+            <div class="napis3">
+                <span id="slowo6">Prywatność</span>
+                <span id="slowo7">Warunki</span>
+                <span id="slowo8">Ustawienia</span>
+            </div>
+        </div>
+        </div>
+
+    </body>
+</html>

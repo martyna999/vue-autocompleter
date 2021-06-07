@@ -1,0 +1,110 @@
+.wyszukiwarka { 
+    margin-top: 4px;
+    grid-area: wyszukiwarka; 
+    background: #fff;
+    height: 800px;
+    display:flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  .city{
+    margin-left: 100px;
+    
+    border-radius: 24px;
+  }
+
+  #googleSearch{
+    grid-area: wyszukiwarka;
+    padding-left: 44px;
+    position:relative;
+    border-radius: 30px;
+    justify-self: flex-start;
+    align-self: center;
+    background: #fff;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    height: 42px;
+    width: 582px;
+    border-radius: 24px;
+  }
+  
+  #lupa{
+    position: absolute;
+    width: 18px;
+    height: 17px;
+    top: 292px;
+    left: 480px;
+  }
+  
+  #lupa-icon1{
+    margin: 9px 9px 9px 14px;
+    width: 17px;
+    height: 15px;
+   }
+  
+  #klawiatura{
+    position: absolute;
+    width: 42px;
+    height: 30px;
+    top: 285px;
+    left: 965px;
+  }
+  
+  #mikrofon{
+    position: absolute;
+    width: 13px;
+    height: 20px;
+    top: 290px;
+    left: 1015px;
+  }
+  
+  #lista{
+    width: 582px;
+    background: #fff;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+  }
+  
+  #listEl{
+    font-size: 15px;
+    font-family: sans-serif;
+    font-style: arial;
+    color: #212121;
+  }
+  
+  .lista {
+    line-height: 0.8rem;
+    border-top: 1px solid #dfe1e5;
+    background-color: #fff;
+  }
+  
+  .lista li {
+    padding: 2px 0px;
+    cursor: pointer;
+  }
+  
+  .element:hover,
+  .element:active, 
+  .element:focus {
+      font-style: normal;
+      background-color: #dfe1e5;
+      height: 25px;
+  }
+  
+  .element a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 1.1em; 
+  }
+  
+  .without_bold {
+      font-weight: 500;
+  }
+  
+  .kl_focus {
+      background-color: #dfe1e5;
+  }
